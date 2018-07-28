@@ -29,11 +29,11 @@ As LeNet was not proving good, I decided to try new architecture - <a href="http
 | Dense 1 (steering angle) | Fully connected, Linear/No activation |
 
 <p align="justify">
-Before running image through model, it was preprocessed. Every image is converted to BGR format, then lambda layer normalizes it, and it's top 70 and bottom 25 pixels were cropped. So, input BGR image 320x160x3 was converted to 320x65x3 normalized image. 
+Before running image through model, it was preprocessed. Every image is converted to RGB format, then lambda layer normalizes it, and it's top 70 and bottom 25 pixels were cropped. So, input BGR image 320x160x3 was converted to 320x65x3 normalized RGB image. 
 </p>
 
 | Original image                                         | Cropped area                                               | Cropped output                                             |
-|:-------------------------------------------------------|:-----------------------------------------------------------|:-----------------------------------------------------------|
+|:------------------------------------------------------:|:----------------------------------------------------------:|:----------------------------------------------------------:|
 | ![alt text](./writeup_data/orig1.jpg "Original image") | ![alt text](./writeup_data/cropped11.jpg "Cropped output") | ![alt text](./writeup_data/cropped12.jpg "Cropped output") |
 | ![alt text](./writeup_data/orig2.jpg "Original image") | ![alt text](./writeup_data/cropped21.jpg "Cropped output") | ![alt text](./writeup_data/cropped22.jpg "Cropped output") |
 
@@ -56,21 +56,21 @@ For augmentation, each image was flipped and angles were modified accordingly. S
 </p>
 
 | Original image                                         | Flipped image                                             |
-|:-------------------------------------------------------|:----------------------------------------------------------|
+|:------------------------------------------------------:|:---------------------------------------------------------:|
 | ![alt text](./writeup_data/orig1.jpg "Original image") | ![alt text](./writeup_data/flipped1.jpg "Flipped output") |
 | ![alt text](./writeup_data/orig2.jpg "Original image") | ![alt text](./writeup_data/flipped2.jpg "Flipped output") |
 
 <p align="justify">
-The simulator captures images from three cameras mounted on the car - center, left and right camera. Left and right camera images are useful to keep the car in the center of the road. While driving in autonomous mode only center camera is used. So, if car deviates from the center of the road, images captured from center camera would look like images captured from left/right camera in simulation. In such case, we need to correct the steering angle to steer car to the center of road again. Correction of +/-0.4 was used in final dataset. If this correction is very less, at high speed car drives off the road. And if it is very high, car oscillates left right.
+The simulator captures images from three cameras mounted on the car - center, left and right camera. Left and right camera images are useful to train model to keep the car in center of road. While driving in autonomous mode only center camera is used. So, if car deviates from the center of the road, images captured from center camera would look like images captured from left/right camera in simulation. In such case, we need to correct the steering angle to steer car back to the center of road. Correction of +/-0.4 was used in final dataset. If this correction is very less, at high speed car drives off the road. And if it is very high, car oscillates left-right.
 </p>
 
 | Left Camera Image                                  | Center Camera Image                                     | Right Camera Image                                    |
-|:---------------------------------------------------|:--------------------------------------------------------|:------------------------------------------------------|
+|:--------------------------------------------------:|:-------------------------------------------------------:|:-----------------------------------------------------:|
 | ![alt text](./writeup_data/left1.jpg "Left image") | ![alt text](./writeup_data/center1.jpg "Center output") | ![alt text](./writeup_data/right1.jpg "Right output") |
 | ![alt text](./writeup_data/left2.jpg "Left image") | ![alt text](./writeup_data/center2.jpg "Center output") | ![alt text](./writeup_data/right2.jpg "Right output") |
 
 <p align="justify">
-So, after using images from all three cameras and flipping it, final dataset consists of 48216 images, in which 11025 images are of left and right turn each, and 26166 images are of straight driving. This dataset was shuffled and out 48216 images, 80% images were used for training and 20% images were used for validation.
+So, after using images from all three cameras and flipping it, final dataset consists of 48216 images, in which 11025 images are of left and right turn each, and 26166 images are of straight driving. This dataset was shuffled and out of 48216 images, 80% images were used for training and 20% images were used for validation.
 </p>
 
 ## Results
