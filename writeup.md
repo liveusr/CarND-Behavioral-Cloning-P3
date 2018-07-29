@@ -11,7 +11,7 @@ To start with, basic LeNet architecture was implemented. After playing with it f
 </p>
 
 <p align="justify">
-As LeNet was not proving good, I decided to try new architecture - <a href="http://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf">Nvidia CNN Architecture</a>. The paper about this Nvidia CNN Architecture is also saved in "writeup_data" folder just for reference.This model consists of 5 convolutional layers and 3 fully connected layers. Convolutional layers perform feature extraction and fully connected layers then derive the steering angle. LeNet is a classification network whereas Nvidia CNN is a regression network. Final model looks like this:
+As LeNet was not proving good, I decided to try new architecture - <a href="http://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf">Nvidia CNN Architecture</a>. The paper about this Nvidia CNN Architecture is also saved in "writeup_data" folder just for reference. This model consists of 5 convolutional layers and 3 fully connected layers. Convolutional layers perform feature extraction and fully connected layers then derive the steering angle. LeNet is a classification network whereas Nvidia CNN is a regression network. Final model looks like this:
 </p>
 
 | Layer                    | Description                           |
